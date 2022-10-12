@@ -1,0 +1,71 @@
+ /*
+   Name:   Descalso, Nielmar C.
+           Pesuelo, Reu Denver L.
+   Section: 3D
+   
+   Problem: (Assign grades) Write a program that reads 
+            students scores, get the best score, and then 
+            assigns grades based on the following scheme:
+
+   Grade is A if score is ≥ best - 10
+   Grade is B if score is ≥ best - 20;
+   Grade is C if score is ≥ best - 30;
+   Grade is D if score is ≥ best - 10;
+   Grade is F otherwise.
+
+   The program prompts the user to enter the total 
+   number of students, then prompts the user to enter 
+   all of the scores, and concludes by displaying the grades. 
+   Here is a sample run: 
+
+   */
+
+
+import java.util.Scanner;
+  public  class Main {
+
+        public static void main(String[] args) {
+ 
+          int size;
+          //Create Scanner to read input
+          Scanner in = new Scanner(System.in);
+
+          //Get number of students
+          System.out.print("Enter the number of students : ");
+          size=in.nextInt();
+
+          //Array for holding scores
+          int arr[]= new int[size];
+          char arrchar[]= new char[size];
+          int best=0;
+          System.out.println("");
+          System.out.print("Enter "+size+" score : ");
+
+          for(int i=0; i<size; i++){
+          arr[i]=in.nextInt();
+
+          if(best<arr[i])
+          best=arr[i];
+          }
+        System.out.println("");
+
+        //Determine the grade of each student
+        for (int i = size-1; i>=0; i--)
+        {
+          if (best-10<= arr[i])
+            arrchar[i]='A';
+          else if (best-20 <=arr[i])
+            arrchar[i]='B';
+          else if (best-30 <=arr[i])
+            arrchar[i]='C';
+          else if (best-40 <= arr[i])
+            arrchar[i] ='D';
+          else 
+            arrchar[i] ='F';
+        }
+        for(int i=0;i<size;i++)
+        System.out.println("Student "+i+" score is "+arr[i]+" and grade is "+arrchar[i]);
+
+    } 
+
+ }    
